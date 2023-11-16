@@ -1,0 +1,30 @@
+h2{
+  font-size: 18px;
+}
+.leftPanel{
+  width: 628px;
+
+}
+.tasks{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+  .scheduleHour{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    p{
+      margin-top: 25px;
+      margin-bottom: 25px;
+      color: #A4B0C3;
+    }
+    .simpleLine{
+      width: 100%;
+      height: 2px;
+      background-color: rgb(243, 243, 243);
+    }
+
+  }
+
+}
