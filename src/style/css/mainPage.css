@@ -1,0 +1,65 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.leftPanel {
+  height: 100%;
+  width: 628px;
+  padding: 30px 70px 0 70px;
+}
+
+.tasks {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+.tasks .scheduleHour {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.tasks .scheduleHour p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #A4B0C3;
+}
+.tasks .scheduleHour .simpleLine {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(243, 243, 243);
+}
+
+.rightPanel {
+  width: 400px;
+  padding-top: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: rgba(42, 46, 65, 0.6980392157);
+}
+.rightPanel .calendarMonth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 35px;
+  color: white;
+}
+.rightPanel .calendarMonth img {
+  height: 18px;
+}
+.rightPanel .calendarMonth img:hover {
+  cursor: pointer;
+}
+.rightPanel .calendarMonth .invertArrow {
+  rotate: 180deg;
+}
+.rightPanel .lineSeparator {
+  width: 100%;
+  border-top: rgba(0, 0, 0, 0.17) solid 1px;
+  border-bottom: rgba(255, 255, 255, 0.13) solid 1px;
+}
