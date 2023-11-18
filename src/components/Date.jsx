@@ -1,5 +1,5 @@
 export function MonthToday(){   //Allows you to see the month written out in full
-    const date = new Date();
+    let date = new Date();
     const options = { month: 'long' };
     const actualMonth = new Intl.DateTimeFormat('en-US', options).format(date);
     return (actualMonth);

@@ -1,5 +1,5 @@
 const TaskToDo = ({startOfScheduleHour, startOfTask, endOfTask , rGBColor }) => {
-    const divHourSizeInPixels = 71;
+    const divHourSizeInPixels = 61;
     const numberHourStartAfterScheduleHour = startOfTask-startOfScheduleHour;
     const calculatedMarginTop = divHourSizeInPixels/2+numberHourStartAfterScheduleHour*divHourSizeInPixels;
     const calculatedHeight = divHourSizeInPixels *(endOfTask-startOfTask);

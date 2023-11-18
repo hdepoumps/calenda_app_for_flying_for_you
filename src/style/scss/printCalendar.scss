@@ -1,0 +1,26 @@
+.dayInTheWeek{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 45px;
+  padding-top: 30px;
+  color: rgba(255, 255, 255, 0.616);
+  align-items: center;
+  text-align: center;
+  p{
+    margin: 0;
+  }
+  .dayInMonth{
+    color: white;
+    &-toShow{
+      color: white;
+      background-color: #3C82F9;
+      border-radius: 50%;
+      width: 40px;
+      padding-top: 9.5px;
+      padding-bottom: 9.5px;
+
+    }
+  }
+}

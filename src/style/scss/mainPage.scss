@@ -1,9 +1,13 @@
+.App{
+  display: flex;
+  justify-content: center;
+}
 h2{
   font-size: 18px;
 }
 .leftPanel{
   width: 628px;
-
+  padding: 30px 70px 70px;
 }
 .tasks{
   margin-top: 25px;
@@ -15,8 +19,8 @@ h2{
     align-items: center;
     gap: 30px;
     p{
-      margin-top: 25px;
-      margin-bottom: 25px;
+      margin-top: 20px;
+      margin-bottom: 20px;
       color: #A4B0C3;
     }
     .simpleLine{
@@ -24,7 +28,37 @@ h2{
       height: 2px;
       background-color: rgb(243, 243, 243);
     }
+  }
+}
+
+.rightPanel{
+  width: 400px;
+  padding-top: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: #2A2E41B2;
+  .calendarMonth{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 35px;
+    color: white;
+    img{
+      height: 18px;
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .invertArrow{
+      rotate: 180deg;
+    }
+  }
+  .lineSeparator{
+    width: 100%;
+    border-top: rgba(0, 0, 0, 0.17) solid 1px ;
+    border-bottom: rgba(255, 255, 255, 0.13) solid 1px;
 
   }
-
 }
+
+.addTask

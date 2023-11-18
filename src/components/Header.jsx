@@ -1,6 +1,6 @@
-import "./date"
-import {DayInTheMonthToday, MonthToday} from "./date";
-import addCross from "../svg/Vector.svg"
+import "./Date"
+import {DayInTheMonthToday, MonthToday} from "./Date";
+import addCross from "../svg/Add.svg"
 import "../style/css/header.css"
 function Header() {
     return (
