@@ -1,0 +1,90 @@
+.addTask{
+  position:absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .addPanelControl{
+    position: relative;
+    width: 550px;
+    background-color: white;
+    padding: 30px 30px 10px;
+    input{
+      border: none;
+      padding: 0;
+    }
+    .firstSection{
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      & > div:nth-child(1){
+        width: 100%;
+        input{
+          margin-bottom: 5px;
+          width: 100%;
+        }
+      }
+      .changeColor{
+        position: relative;
+        padding-left: 12px;
+        #color{
+          width: 18.5px;
+          height: 18.5px;
+          cursor: pointer;
+        }
+        .chrome-picker{
+          position: absolute;
+          bottom: calc(18.5px + 20px);
+          left: calc(-225px/2 + 18.5px/2);
+          box-shadow: 0 16px 32px 0 #23170542;
+          &>  div:nth-child(2) > div:nth-child(1) > div:nth-child(1){
+            visibility: hidden;
+          }
+          &> div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1){
+            display: none;
+          }
+          & div.flexbox-fix:nth-child(2) > div:nth-child(2){
+            display: none;
+          }
+          & .saturation-white > div:nth-child(2) > div:nth-child(1){
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            box-shadow: rgb(255, 255, 255) 0 0 0 4px inset;
+            transform: translate(-8px, -8px);
+          }
+        }
+      }
+    }
+    .dateDuration{
+      padding-top: 20px;
+      img{
+        width: 17px;
+      }
+    }
+    .timingDuration{
+      padding-top: 20px;
+      img{
+        width: 18.5px;
+      }
+    }
+    #comment{
+      margin-top: 30px;
+      margin-bottom: 5px;
+      width: 100%;
+    }
+    button{
+      margin-left: calc(100% - 75px);
+      margin-top: 17px;
+      height: 20px;
+      width: 75px;
+      color: white;
+      border: none;
+    }
+  }
+}

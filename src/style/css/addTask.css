@@ -1,0 +1,89 @@
+.addTask {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.addTask .addPanelControl {
+  position: relative;
+  width: 550px;
+  background-color: white;
+  padding: 30px 30px 10px;
+}
+.addTask .addPanelControl input {
+  border: none;
+  padding: 0;
+}
+.addTask .addPanelControl .firstSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.addTask .addPanelControl .firstSection > div:nth-child(1) {
+  width: 100%;
+}
+.addTask .addPanelControl .firstSection > div:nth-child(1) input {
+  margin-bottom: 5px;
+  width: 100%;
+}
+.addTask .addPanelControl .firstSection .changeColor {
+  position: relative;
+  padding-left: 12px;
+}
+.addTask .addPanelControl .firstSection .changeColor #color {
+  width: 18.5px;
+  height: 18.5px;
+  cursor: pointer;
+}
+.addTask .addPanelControl .firstSection .changeColor .chrome-picker {
+  position: absolute;
+  bottom: 38.5px;
+  left: -103.25px;
+  box-shadow: 0 16px 32px 0 rgba(35, 23, 5, 0.2588235294);
+}
+.addTask .addPanelControl .firstSection .changeColor .chrome-picker > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
+  visibility: hidden;
+}
+.addTask .addPanelControl .firstSection .changeColor .chrome-picker > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
+  display: none;
+}
+.addTask .addPanelControl .firstSection .changeColor .chrome-picker div.flexbox-fix:nth-child(2) > div:nth-child(2) {
+  display: none;
+}
+.addTask .addPanelControl .firstSection .changeColor .chrome-picker .saturation-white > div:nth-child(2) > div:nth-child(1) {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  box-shadow: rgb(255, 255, 255) 0 0 0 4px inset;
+  transform: translate(-8px, -8px);
+}
+.addTask .addPanelControl .dateDuration {
+  padding-top: 20px;
+}
+.addTask .addPanelControl .dateDuration img {
+  width: 17px;
+}
+.addTask .addPanelControl .timingDuration {
+  padding-top: 20px;
+}
+.addTask .addPanelControl .timingDuration img {
+  width: 18.5px;
+}
+.addTask .addPanelControl #comment {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+.addTask .addPanelControl button {
+  margin-left: calc(100% - 75px);
+  margin-top: 17px;
+  height: 20px;
+  width: 75px;
+  color: white;
+  border: none;
+}

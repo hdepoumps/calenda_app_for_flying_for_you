@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import HourRangeComponent from "../components/PrintSchedule";
 import TaskToDo from "../components/Task"
 import PrintCalendar from "../components/PrintCalendar";
+import AddTask from "../components/AddTask";
 import leftArrow from "../svg/LeftArrow.svg";
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
               <div className={"lineSeparator"}></div>
               <PrintCalendar monthToPrint={date} dateToPrint={new Date()} />
           </section>
+          <AddTask/>
       </div>
   );
 }
