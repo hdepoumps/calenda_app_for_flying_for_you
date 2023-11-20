@@ -1,8 +1,8 @@
-import React from "react"; // Make sure to import React if you're using JSX
 import HourRangeComponent from "./PrintSchedule";
 import TaskToDo from "./Task";
 
 function Schedule({ dateToUse, tasks, setTasks }) {
+    // Filter tasks based on the selected date
     const filteredTasks = tasks.filter((task) => {
         const startDate = new Date(task.startDate);
         const endDate = new Date(task.endDate);
@@ -11,6 +11,7 @@ function Schedule({ dateToUse, tasks, setTasks }) {
         return startDate <= new Date(dateToUse) && new Date(dateToUse) <= endDate;
     });
 
+    // Calculate the start and end hours of the day based on tasks
     const calculateStartEndHours = (tasks) => {
         let startHour = 23.99;
         let endHour = 0;
@@ -23,15 +24,20 @@ function Schedule({ dateToUse, tasks, setTasks }) {
         for (const task of tasks) {
             const startDateTime = new Date(`${task.startDate}T${task.startTime}`);
             const endDateTime = new Date(`${task.endDate}T${task.endTime}`);
-            if (startDateTime<dateToUse.setHours(0, 0, 0, 0)){
+
+            // Adjust startHour if the task starts earlier than the selected date
+            if (startDateTime < dateToUse.setHours(0, 0, 0, 0)) {
                 startHour = 0;
             }
-            if (endDateTime>dateToUse.setHours(23, 59, 59, 999)){
+
+            // Adjust endHour if the task ends later than the selected date
+            if (endDateTime > dateToUse.setHours(23, 59, 59, 999)) {
                 endHour = 23.99;
             }
 
             const taskStartHour = startDateTime.getHours() + startDateTime.getMinutes() / 60;
             const taskEndHour = endDateTime.getHours() + endDateTime.getMinutes() / 60;
+
             // Update startHour if the task starts earlier
             if (taskStartHour < startHour) {
                 startHour = taskStartHour;
@@ -42,22 +48,26 @@ function Schedule({ dateToUse, tasks, setTasks }) {
                 endHour = taskEndHour;
             }
         }
+
         return { startHour, endHour };
     };
 
+    // Destructure the start and end hours
     const { startHour, endHour } = calculateStartEndHours(filteredTasks);
 
+    // Render the TaskToDo components based on filtered tasks
     const renderTasksToDo = (filteredTasks) => {
         return filteredTasks.map((task) => {
-            const {startHour: startTaskHour, endHour: endTaskHour} =
+            const { startHour: startTaskHour, endHour: endTaskHour } =
                 calculateStartEndHours([task]);
+
             return (
                 <TaskToDo
                     key={task.id}
                     id={task.id}
                     tasks={tasks}
                     setTasks={setTasks}
-                    startOfScheduleHour={startHour>9?9:startHour}
+                    startOfScheduleHour={startHour > 9 ? 9 : startHour}
                     startOfTask={startTaskHour}
                     endOfTask={endTaskHour}
                     color={task.color}
@@ -67,9 +77,13 @@ function Schedule({ dateToUse, tasks, setTasks }) {
         });
     };
 
+    // Render the Schedule component
     return (
         <div className={"tasks"}>
-            <HourRangeComponent startHour={startHour>9?9:startHour} endHour={endHour<20?20:endHour} />
+            {/* Display the HourRangeComponent */}
+            <HourRangeComponent startHour={startHour > 9 ? 9 : startHour} endHour={endHour < 20 ? 20 : endHour} />
+
+            {/* Render TaskToDo components */}
             {renderTasksToDo(filteredTasks)}
         </div>
     );

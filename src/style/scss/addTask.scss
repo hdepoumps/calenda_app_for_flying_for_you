@@ -76,10 +76,18 @@
     .timingDuration{
       padding-top: 20px;
       display: flex;
-      gap: 5px;
+      gap: 10px;
       img{
         width: 18.5px;
       }
+      p{
+        padding: 3px;
+        cursor: pointer;
+      }
+    }
+    .displayClock{
+      display: flex;
+      gap: 20px;
     }
     textarea{
       padding: 0;
@@ -104,6 +112,7 @@
     height: 100vh;
   }
 }
+
 @media screen and (max-width: 900px) {
   .addTask{
     .addPanelControl {

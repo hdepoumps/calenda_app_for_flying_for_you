@@ -75,10 +75,18 @@
 .addTask .addPanelControl .timingDuration {
   padding-top: 20px;
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 .addTask .addPanelControl .timingDuration img {
   width: 18.5px;
+}
+.addTask .addPanelControl .timingDuration p {
+  padding: 3px;
+  cursor: pointer;
+}
+.addTask .addPanelControl .displayClock {
+  display: flex;
+  gap: 20px;
 }
 .addTask .addPanelControl textarea {
   padding: 0;

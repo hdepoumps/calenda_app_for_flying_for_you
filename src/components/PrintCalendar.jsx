@@ -1,6 +1,8 @@
 import "../style/css/printCalendar.css";
 
-const PrintCalendar = ({ dateToPrint, monthToPrint, setDateToUse}) => {
+// PrintCalendar component displays a monthly calendar
+const PrintCalendar = ({ dateToPrint, monthToPrint, setDateToUse }) => {
+    // Function to get the number of days in a month
     const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     const daysInMonth = getDaysInMonth(monthToPrint);
 
@@ -8,12 +10,16 @@ const PrintCalendar = ({ dateToPrint, monthToPrint, setDateToUse}) => {
     const firstDayOfMonth = new Date(monthToPrint.getFullYear(), monthToPrint.getMonth(), 1).getDay();
     const adjustedFirstDayOfMonth = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
 
+    // Getting the number of days in the previous month
     const daysInPreviousMonth = getDaysInMonth(new Date(monthToPrint.getFullYear(), monthToPrint.getMonth() - 1));
 
+    // Function to handle day click and update the selected date
     const handleDayClick = (day) => {
         const newDateToUse = new Date(monthToPrint.getFullYear(), monthToPrint.getMonth(), day);
         setDateToUse(newDateToUse);
     };
+
+    // Function to render the days in the calendar
     const renderDays = () => {
         const days = [];
         const totalDays = daysInMonth + adjustedFirstDayOfMonth;
@@ -37,7 +43,7 @@ const PrintCalendar = ({ dateToPrint, monthToPrint, setDateToUse}) => {
             const dayClass = isCurrentDate ? 'dayInMonth-toShow' : 'dayInMonth';
 
             days.push(
-                <p key={i} className={dayClass} onClick={()=>{handleDayClick(i)}}>
+                <p key={i} className={dayClass} onClick={() => { handleDayClick(i) }}>
                     {i}
                 </p>
             );
@@ -56,6 +62,7 @@ const PrintCalendar = ({ dateToPrint, monthToPrint, setDateToUse}) => {
         return days;
     };
 
+    // Render the calendar component
     return (
         <div className={"dayInTheWeek"}>
             <p>M</p>

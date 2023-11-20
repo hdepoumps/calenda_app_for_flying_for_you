@@ -19,8 +19,7 @@ const DesignClock = ({ startTime, setStartTime, color }) => {
 
         const numberSuite = [];
 
-        // Loop to generate numbers and their styles
-        for (let i = 1; i <= numberofIteration; i++) {
+        for (let i = 0; i < numberofIteration; i++) {
             const angle = startingAngle + i * angleIncrement;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
@@ -41,17 +40,43 @@ const DesignClock = ({ startTime, setStartTime, color }) => {
                 color: selectedNumber === i ? 'white' : '',
             };
 
-            // Push each number element to the numberSuite array
-            numberSuite.push(
-                <p key={i} style={numberStyle} onClick={() => handleNumberClick(i)}>
-                    {i}
-                </p>
-            );
+            // Render numbers every 5 steps
+            if (i % 5 === 0) {
+                numberSuite.push(
+                    <p key={i} style={numberStyle} onClick={() => handleNumberClick(i)}>
+                        {i}
+                    </p>
+                );
+            }
         }
 
         return numberSuite;
     };
 
+    // Styles for the needle and center point
+    const needleStyle = {
+        position: 'absolute',
+        left: 'calc(50% - 1px)',
+        top: 'calc(50% - 50px)',
+        width: '2px',
+        height: '50px',
+        backgroundColor: color, // adjust the color as needed
+        transformOrigin: '50% 100%',
+        transform: `rotate(${(360 / 60) * selectedNumber}deg)`,
+    };
+
+    const centerPointStyle = {
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        width: '6px',
+        height: '6px',
+        borderRadius: '50%',
+        backgroundColor: color, // adjust the color as needed
+        transform: 'translate(-50%, -50%)',
+    };
+
+    // Styles for the dial decoration
     const styles = {
         dialDecoration: {
             position: 'relative',
@@ -60,39 +85,19 @@ const DesignClock = ({ startTime, setStartTime, color }) => {
             height: '160px',
             borderRadius: '50%',
         },
-        centerPointStyle: {
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            backgroundColor: color, // adjust the color as needed
-            transform: 'translate(-50%, -50%)',
-        },
-        needleStyle: {
-            position: 'absolute',
-            left: 'calc(50% - 1px)',
-            top: 'calc(50% - 50px)',
-            width: '2px',
-            height: '50px',
-            backgroundColor: color, // adjust the color as needed
-            transformOrigin: '50% 100%',
-            transform: `rotate(${(360 / 12) * selectedNumber}deg)`,
-        },
     };
 
     // Render the DesignClock component
     return (
         <div style={styles.dialDecoration}>
             {/* Render numbers in a circular pattern */}
-            {renderNumberSuite({ numberofIteration: 12 })}
+            {renderNumberSuite({ numberofIteration: 60 })}
 
             {/* Render the needle */}
-            <div style={styles.needleStyle}></div>
+            <div style={needleStyle}></div>
 
             {/* Render the center point */}
-            <div style={styles.centerPointStyle}></div>
+            <div style={centerPointStyle}></div>
         </div>
     );
 };
