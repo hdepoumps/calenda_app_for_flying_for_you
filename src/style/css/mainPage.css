@@ -1,4 +1,5 @@
 .App {
+  font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: center;
 }
@@ -38,8 +39,8 @@ h2 {
 .rightPanel {
   width: 400px;
   padding-top: 30px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
   background-color: rgba(42, 46, 65, 0.6980392157);
 }
 .rightPanel .calendarMonth {
@@ -62,4 +63,66 @@ h2 {
   width: 100%;
   border-top: rgba(0, 0, 0, 0.17) solid 1px;
   border-bottom: rgba(255, 255, 255, 0.13) solid 1px;
+}
+
+@media screen and (max-width: 900px) {
+  .rightPanel {
+    display: none;
+  }
+  .leftPanel {
+    height: 100%;
+    width: 628px;
+    padding: 30px 20px 20px 20px;
+  }
+  .burgerMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #3C82F9;
+    border-radius: 50%;
+  }
+  .burgerMenu > div:nth-child(n) {
+    background-color: white;
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+  }
+  .displayRightPanel.App {
+    height: 100vh;
+  }
+  .displayRightPanel .leftPanel {
+    display: none;
+  }
+  .displayRightPanel .rightPanel {
+    width: 100%;
+    display: initial;
+  }
+  .displayRightPanel .burgerMenu {
+    display: initial;
+  }
+  .displayRightPanel .burgerMenu > div:nth-child(1) {
+    position: absolute;
+    top: 19px;
+    left: 10px;
+    height: 4px;
+    rotate: 45deg;
+  }
+  .displayRightPanel .burgerMenu > div:nth-child(2) {
+    display: none;
+  }
+  .displayRightPanel .burgerMenu > div:nth-child(3) {
+    position: absolute;
+    top: 19px;
+    left: 10px;
+    height: 4px;
+    rotate: -45deg;
+  }
 }

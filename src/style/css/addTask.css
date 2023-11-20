@@ -1,5 +1,5 @@
 .addTask {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .addTask .addPanelControl {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 550px;
   background-color: white;
@@ -29,6 +29,7 @@
   width: 100%;
 }
 .addTask .addPanelControl .firstSection > div:nth-child(1) input {
+  font-size: 24px;
   margin-bottom: 5px;
   width: 100%;
 }
@@ -44,7 +45,7 @@
 .addTask .addPanelControl .firstSection .changeColor .chrome-picker {
   position: absolute;
   bottom: 38.5px;
-  left: -103.25px;
+  left: -94px;
   box-shadow: 0 16px 32px 0 rgba(35, 23, 5, 0.2588235294);
 }
 .addTask .addPanelControl .firstSection .changeColor .chrome-picker > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
@@ -65,20 +66,27 @@
 }
 .addTask .addPanelControl .dateDuration {
   padding-top: 20px;
+  display: flex;
+  gap: 5px;
 }
 .addTask .addPanelControl .dateDuration img {
   width: 17px;
 }
 .addTask .addPanelControl .timingDuration {
   padding-top: 20px;
+  display: flex;
+  gap: 5px;
 }
 .addTask .addPanelControl .timingDuration img {
   width: 18.5px;
 }
-.addTask .addPanelControl #comment {
+.addTask .addPanelControl textarea {
+  padding: 0;
+  border: none;
   margin-top: 30px;
   margin-bottom: 5px;
   width: 100%;
+  height: 20px;
 }
 .addTask .addPanelControl button {
   margin-left: calc(100% - 75px);
@@ -92,4 +100,15 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
+}
+
+@media screen and (max-width: 900px) {
+  .addTask .addPanelControl {
+    width: calc(100vw - 70px);
+  }
+  .addTask .addPanelControl .firstSection .changeColor .chrome-picker {
+    position: fixed;
+    bottom: calc(100% - 250px);
+    left: calc(50% - 112.5px);
+  }
 }

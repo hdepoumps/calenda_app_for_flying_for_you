@@ -23,11 +23,15 @@ function Schedule({ dateToUse, tasks, setTasks }) {
         for (const task of tasks) {
             const startDateTime = new Date(`${task.startDate}T${task.startTime}`);
             const endDateTime = new Date(`${task.endDate}T${task.endTime}`);
+            if (startDateTime<dateToUse.setHours(0, 0, 0, 0)){
+                startHour = 0;
+            }
+            if (endDateTime>dateToUse.setHours(23, 59, 59, 999)){
+                endHour = 23.99;
+            }
 
-            const taskStartHour =
-                startDateTime.getHours() + startDateTime.getMinutes() / 60;
+            const taskStartHour = startDateTime.getHours() + startDateTime.getMinutes() / 60;
             const taskEndHour = endDateTime.getHours() + endDateTime.getMinutes() / 60;
-
             // Update startHour if the task starts earlier
             if (taskStartHour < startHour) {
                 startHour = taskStartHour;
@@ -38,14 +42,6 @@ function Schedule({ dateToUse, tasks, setTasks }) {
                 endHour = taskEndHour;
             }
         }
-
-        // Check for tasks that span across days
-        if (startHour > endHour) {
-            // Tasks span across days, set startHour to 0.0 and endHour to 23.99
-            startHour = 0.0;
-            endHour = 23.99;
-        }
-
         return { startHour, endHour };
     };
 
@@ -61,7 +57,7 @@ function Schedule({ dateToUse, tasks, setTasks }) {
                     id={task.id}
                     tasks={tasks}
                     setTasks={setTasks}
-                    startOfScheduleHour={startHour}
+                    startOfScheduleHour={startHour>9?9:startHour}
                     startOfTask={startTaskHour}
                     endOfTask={endTaskHour}
                     color={task.color}

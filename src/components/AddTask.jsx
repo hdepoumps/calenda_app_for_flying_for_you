@@ -4,17 +4,19 @@ import { v4 as uuidv4 } from 'uuid';
 import "../style/css/addTask.css"
 import calendarIcon from "../svg/calendarIcon.svg"
 import clockIcon from "../svg/clockIcon.svg"
-
+import SetTime from "./SetTime";
 const AddTask = ({ showAddTaskPanel, setShowAddTaskPanel, startDateToAdd ,tasks,setTasks }) => {
 
     const [color, setColor] = useState('#6200EE'); // default color
     const [showPicker, setShowPicker] = useState(false);
     const [title, setTitle] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [startTime, setStartTime] = useState('');
-    const [endTime, setEndTime] = useState('');
+    const [startDate, setStartDate] = useState(`${startDateToAdd.getYear()}-${startDateToAdd.getMonth()}-${startDateToAdd.getDate()}`);
+    const [endDate, setEndDate] = useState(`${startDateToAdd.getYear()}-${startDateToAdd.getMonth()}-${startDateToAdd.getDate()}`);
+    const [startTime, setStartTime] = useState(`${startDateToAdd.getHours()}:${startDateToAdd.getMinutes()}`);
+    const [endTime, setEndTime] = useState(`${startDateToAdd.getHours()}:${startDateToAdd.getMinutes()}`);
     const [comment, setComment] = useState('');
+
+
 
     const handleClick = () => {
         setShowPicker(!showPicker);
@@ -66,10 +68,11 @@ const AddTask = ({ showAddTaskPanel, setShowAddTaskPanel, startDateToAdd ,tasks,
 
     return (
         <section className={"addTask"}>
+
             <div className={"addPanelControl"}>
                 <div className="firstSection">
                     <div>
-                        <input type={"text"} id={"title"} placeholder={"Add Title"} minLength={1} value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <input type={"text"} id={"title"} placeholder={"Add Title"} maxLength={50} value={title} onChange={(e) => setTitle(e.target.value)} />
                         <div style={styles.lineDecoration} />
                     </div>
 
@@ -85,16 +88,15 @@ const AddTask = ({ showAddTaskPanel, setShowAddTaskPanel, startDateToAdd ,tasks,
 
                 <div className={"dateDuration"}>
                     <img src={calendarIcon} alt={"calendar icon"} />
-                    <input type={"date"} value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-                    <input type={"date"} value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+                    <input style={{ backgroundColor: `${color}26` }} type={"date"} value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+                    <input style={{ backgroundColor: `${color}26` }} type={"date"} value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                 </div>
                 <div className={"timingDuration"}>
                     <img src={clockIcon} alt={"calendar icon"} />
-                    <input type={"time"} value={startTime} onChange={(e) => setStartTime(e.target.value)} />
-                    <input type={"time"} value={endTime} onChange={(e) => setEndTime(e.target.value)} />
+                    <input style={{ backgroundColor: `${color}26` }} type={"time"} value={startTime} onChange={(e) => setStartTime(e.target.value)} />
+                    <input style={{ backgroundColor: `${color}26` }} type={"time"} value={endTime} onChange={(e) => setEndTime(e.target.value)} />
                 </div>
-
-                <input type={"text"} id={"comment"} placeholder={"comment"} value={comment} onChange={(e) => setComment(e.target.value)} />
+                <textarea id={"comment"} placeholder={"comment"} value={comment} onChange={(e) => setComment(e.target.value)}/>
                 <div style={styles.lineDecoration} />
                 <button style={{ backgroundColor: color }} onClick={handleAddTask}>Add</button>
             </div>

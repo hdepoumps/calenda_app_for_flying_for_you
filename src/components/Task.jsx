@@ -1,7 +1,7 @@
 import deleteCross from "../svg/deleteCross.svg"
 
 const TaskToDo = ({id,tasks,setTasks, startOfScheduleHour, startOfTask, endOfTask, title , color }) => {
-    const divHourSizeInPixels = 61;
+    const divHourSizeInPixels = 58;
     const numberHourStartAfterScheduleHour = startOfTask-startOfScheduleHour;
     const calculatedMarginTop = divHourSizeInPixels/2+numberHourStartAfterScheduleHour*divHourSizeInPixels;
     const calculatedHeight = divHourSizeInPixels *(endOfTask-startOfTask);

@@ -2,24 +2,26 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 628px;
+  max-width: 628px;
   height: 50px;
   padding-bottom: 35px;
   border-bottom: solid 2px #F3F3F3;
+  .rightMenuContener{
+    display: flex;
+    gap: 5px;
+    .add{
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #3C82F9;
+      border-radius: 50%;
 
-  .add{
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: #3C82F9;
-    border-radius: 50%;
-
-    img{
-      width: 12px;
-      height: 12px;
+      img{
+        width: 12px;
+        height: 12px;
+      }
     }
   }
 }
-
