@@ -1,7 +1,6 @@
-export function MonthToday(){   //Allows you to see the month written out in full
-    let date = new Date();
+export function MonthToday(dateToPrint){   //Allows you to see the month written out in full
     const options = { month: 'long' };
-    const actualMonth = new Intl.DateTimeFormat('en-US', options).format(date);
+    const actualMonth = new Intl.DateTimeFormat('en-US', options).format(dateToPrint);
     return (actualMonth);
 }
 
@@ -12,8 +11,7 @@ export function DayToday(){     //Allows you to find out the day written out in 
     return (actualDay);
 }
 
-export function DayInTheMonthToday(){       //To know the day written in figures
-    const date = new Date();
-    const actualDayInTheMonth = date.getDate()
+export function DayInTheMonthToday(dateToPrint){       //To know the day written in figures
+    const actualDayInTheMonth = dateToPrint.getDate()
     return (actualDayInTheMonth);
 }

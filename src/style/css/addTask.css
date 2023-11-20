@@ -10,7 +10,8 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 .addTask .addPanelControl {
-  position: relative;
+  position: absolute;
+  z-index: 1;
   width: 550px;
   background-color: white;
   padding: 30px 30px 10px;
@@ -86,4 +87,9 @@
   width: 75px;
   color: white;
   border: none;
+}
+.addTask .cancelAdd {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }

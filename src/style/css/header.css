@@ -8,6 +8,7 @@ header {
   border-bottom: solid 2px #F3F3F3;
 }
 header .add {
+  cursor: pointer;
   display: grid;
   place-items: center;
   width: 40px;

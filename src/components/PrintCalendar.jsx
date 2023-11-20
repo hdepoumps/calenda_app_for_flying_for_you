@@ -1,6 +1,6 @@
 import "../style/css/printCalendar.css";
 
-const PrintCalendar = ({ dateToPrint, monthToPrint }) => {
+const PrintCalendar = ({ dateToPrint, monthToPrint, setDateToUse}) => {
     const getDaysInMonth = (date) => new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
     const daysInMonth = getDaysInMonth(monthToPrint);
 
@@ -10,6 +10,10 @@ const PrintCalendar = ({ dateToPrint, monthToPrint }) => {
 
     const daysInPreviousMonth = getDaysInMonth(new Date(monthToPrint.getFullYear(), monthToPrint.getMonth() - 1));
 
+    const handleDayClick = (day) => {
+        const newDateToUse = new Date(monthToPrint.getFullYear(), monthToPrint.getMonth(), day);
+        setDateToUse(newDateToUse);
+    };
     const renderDays = () => {
         const days = [];
         const totalDays = daysInMonth + adjustedFirstDayOfMonth;
@@ -33,7 +37,7 @@ const PrintCalendar = ({ dateToPrint, monthToPrint }) => {
             const dayClass = isCurrentDate ? 'dayInMonth-toShow' : 'dayInMonth';
 
             days.push(
-                <p key={i} className={dayClass}>
+                <p key={i} className={dayClass} onClick={()=>{handleDayClick(i)}}>
                     {i}
                 </p>
             );
