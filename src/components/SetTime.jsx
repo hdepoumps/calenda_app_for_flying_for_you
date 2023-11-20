@@ -1,4 +1,4 @@
-import DesignClock from "./designClock";
+import DesignClock from "./DesignClock";
 import { useState } from "react";
 import DesignClockMinutes from "./DesignClockMinutes";
 

@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import PrintCalendar from "../components/PrintCalendar";
 import AddTask from "../components/AddTask";
 import leftArrow from "../svg/LeftArrow.svg";
-import Schedule from "../components/schedule";
+import Schedule from "../components/Schedule";
 
 function App() {
     // State variables for managing various aspects of the application
