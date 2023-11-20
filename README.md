@@ -1,4 +1,4 @@
-# Calenda App for Flying For You
+# Calendar application for Flying For You
 
 This project, named "Calenda App for Flying For You," is a React application designed to provide a user-friendly calendar experience. The project utilizes various dependencies and tools to enhance the development process.
 
